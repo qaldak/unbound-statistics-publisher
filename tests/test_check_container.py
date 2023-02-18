@@ -16,5 +16,6 @@ class TestDockerContainerRunning(TestCase):
     def test_container_running_mock(self, mock_container_state):
         assert Container("Foo").is_running() is True
 
-    def test_container_not_running(self):
+    @patch("src.check_container.docker.ps", return_value=False)
+    def test_container_not_running(self, mock_container_state):
         assert Container("Foo").is_running() is False
