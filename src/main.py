@@ -4,21 +4,23 @@ from socket import gethostname
 
 import logging
 
+logger = logging.getLogger(__name__)
 
-def get_hostname():
+
+def __get_hostname():
     hostname = gethostname()
-    print("Hostname is:", hostname.lower())
+    return hostname.lower()
 
 
 def main():
-    get_metrics()
-    get_hostname()
-    container = Container("opensearch-opensearch-1")
-    if container.is_running():
+    logger.debug("Start")
+
+    if Container(f"unbound_{__get_hostname()}").is_running():
         print("huhu")
     else:
         print("bar")
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.WARNING, filename="./unbound-metrics.log", format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     main()
