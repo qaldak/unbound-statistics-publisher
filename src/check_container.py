@@ -8,7 +8,7 @@ class Container:
     def __init__(self, name):
         self.name = name
 
-    def __get_container_info(self):
+    def __log_container_info(self):
         for container in docker.ps(all=True, filters={"name": self.name}):
             logger.debug(f"Container info for '{self.name}': {container.state}")
 
@@ -20,7 +20,7 @@ class Container:
             else:
                 logger.warning(f"Docker Container '{self.name}' not found or is not running")
                 if logger.isEnabledFor(logging.DEBUG):
-                    self.__get_container_info()
+                    self.__log_container_info()
                 return False
 
         except DockerException as e:
