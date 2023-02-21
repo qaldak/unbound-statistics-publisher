@@ -17,7 +17,7 @@ def __convert_to_json(stats):
                      f"stats: {stats}")
 
 
-def get_metrics(container: str):
+def get_statistics(container: str):
     stats = (docker.execute(container, ["unbound-control", "stats_noreset"]))
     stats_json = __convert_to_json(stats)
     if type(stats_json) == dict:
