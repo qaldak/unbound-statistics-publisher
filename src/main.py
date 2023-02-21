@@ -1,4 +1,4 @@
-from get_metrics import get_metrics
+from get_statistics import get_metrics
 from check_container import Container
 from socket import gethostname
 
