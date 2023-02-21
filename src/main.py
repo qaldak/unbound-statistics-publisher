@@ -13,14 +13,18 @@ def __get_hostname():
 
 
 def main():
-    logger.debug("Start")
+    unbound_container = f"unbound_{__get_hostname()}"
+    logger.debug(f"Get statistics for Docker container '{unbound_container}'")
 
-    if Container(f"unbound_{__get_hostname()}").is_running():
+    if Container(unbound_container).is_running():
+        unbound_stats = get_metrics(unbound_container)
         print("huhu")
+        print(f"{unbound_stats}")
     else:
         print("bar")
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.WARNING, filename="./unbound-metrics.log", format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    logging.basicConfig(level=logging.WARNING, filename="./unbound-stats.log",
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     main()
