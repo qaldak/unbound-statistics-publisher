@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch
 
-from src.get_metrics import get_metrics
+from src.get_statistics import get_metrics
 
 
 class TestCollectUnboundStatistics(TestCase):
