@@ -4,6 +4,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class Container:
     def __init__(self, name):
         self.name = name
@@ -13,9 +14,9 @@ class Container:
             logger.debug(f"Container info for '{self.name}': {container.state}")
 
     def is_running(self):
-        logger.debug("This is a debug thing")
         try:
             if docker.ps(filters={"name": self.name, "status": "running"}):
+                logger.debug(f"Container {self.name} is running")
                 return True
             else:
                 logger.warning(f"Docker Container '{self.name}' not found or is not running")
