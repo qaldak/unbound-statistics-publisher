@@ -1,4 +1,4 @@
-# unbound-metrics
+# unbound-statistics-publisher
 
 ## Description
 
