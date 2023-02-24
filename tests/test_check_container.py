@@ -2,6 +2,7 @@ from unittest import TestCase
 from unittest.mock import patch
 
 from python_on_whales import docker
+
 from src.check_container import Container
 
 

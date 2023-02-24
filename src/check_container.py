@@ -1,6 +1,6 @@
-from python_on_whales import docker, DockerException
-
 import logging
+
+from python_on_whales import docker, DockerException
 
 logger = logging.getLogger(__name__)
 
