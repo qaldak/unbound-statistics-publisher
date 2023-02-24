@@ -1,24 +1,38 @@
-from get_metrics import get_metrics
-from check_container import Container
-from socket import gethostname
-
+import argparse
 import logging
 
+from check_container import Container
+from get_hostname import get_hostname
+from get_statistics import Collector
+from send_statistics import Publisher
 
-def get_hostname():
-    hostname = gethostname()
-    print("Hostname is:", hostname.lower())
+logger = logging.getLogger(__name__)
 
 
-def main():
-    get_metrics()
-    get_hostname()
-    container = Container("opensearch-opensearch-1")
-    if container.is_running():
-        print("huhu")
+def main(receiver_ip):
+    collector_cntnr = f"unbound_{get_hostname('lower')}"
+    publisher_cntnr = f"mosquitto_{get_hostname('lower')}"
+
+    logger.debug(f"Provide statistics for Docker container '{collector_cntnr}'")
+
+    if Container(collector_cntnr).is_running() and Container(publisher_cntnr).is_running():
+        unbound_stats = Collector.get_statistics(collector_cntnr)
+        statistic_sent = Publisher.send_statistics(receiver_ip, unbound_stats, publisher_cntnr)
+        if statistic_sent:
+            logger.debug(f"Unbound statistics sent successful.")
+        else:
+            logger.error(f"Unbound statistics failed. Check log for details.")
     else:
-        print("bar")
+        logger.error(f"A Container is missing or not running. Check log for details.")
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("receiver_ip", help="IP address of the message receiver, e.g. MQTT Broker")
+    parser.add_argument("--debug", action="store_const", dest="loglevel", const=logging.DEBUG, default=logging.WARNING,
+                        help="Set loglevel to DEBUG")
+    args = parser.parse_args()
+    logging.basicConfig(level=args.loglevel, filename="../log/unbound-stats.log",
+                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    main(args.receiver_ip)

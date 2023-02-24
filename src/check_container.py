@@ -1,32 +1,28 @@
-from python_on_whales import docker, DockerException, ClientNotFoundError
+import logging
+
+from python_on_whales import docker, DockerException
+
+logger = logging.getLogger(__name__)
 
 
 class Container:
     def __init__(self, name):
         self.name = name
 
+    def __log_container_info(self):
+        for container in docker.ps(all=True, filters={"name": self.name}):
+            logger.debug(f"Container info for '{self.name}': {container.state}")
+
     def is_running(self):
-        container_found = self.call_container()
+        try:
+            if docker.ps(filters={"name": self.name, "status": "running"}):
+                logger.debug(f"Container {self.name} is running")
+                return True
+            else:
+                logger.warning(f"Docker Container '{self.name}' not found or is not running")
+                if logger.isEnabledFor(logging.DEBUG):
+                    self.__log_container_info()
+                return False
 
-        if container_found:
-            for container in self.call_container():
-                # Todo: logger
-                print(type(container))
-                print(container)
-                # print(f"Container is {container.state}")
-                if container.state.status == "running":
-                    return True
-                else:
-                    return False
-        else:
-            print(f"Container '{self.name}' not found")
-            return False
-
-    def call_container(self):
-        return docker.ps(all, filters={"name": self.name})
-
-
-if Container("busybox").is_running():
-    print("foo")
-else:
-    print("bar")
+        except DockerException as e:
+            logger.error(f"{DockerException.__name__}: Exit code {e.return_code}, {e.stderr.strip()}")
