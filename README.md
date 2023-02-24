@@ -21,7 +21,7 @@ optional parameter "--debug" set loglevel to "DEBUG"
 
 ### Dependencies
 
-see [requirements.txt](src/requirements)
+see [requirements.txt](requirements.txt)
 
 ### Links
 
