@@ -19,9 +19,10 @@ optional parameter "--debug" set loglevel to "DEBUG"
 
 `05 0 * * * <PATH>/src/main.py "<IP Address Receiver>"`
 
-### Dependencies
+### Requirements
 
-see [requirements.txt](requirements.txt)
+* Python 3.8 or higher
+* Python modules, see [requirements.txt](requirements.txt)
 
 ### Links
 
