@@ -14,7 +14,7 @@ class TestProvideStatistics(TestCase):
         with self.assertLogs("__main__", level="DEBUG") as log:
             logging.getLogger("__main__").debug("Unbound statistics sent successful.")
 
-        result = main("127.0.0.1")
+        result = main("127.0.0.1", False)
         self.assertEqual(result, None)
         self.assertEqual(log.output, ["DEBUG:__main__:Unbound statistics sent successful."])
 
@@ -22,10 +22,11 @@ class TestProvideStatistics(TestCase):
     def test_failed(self, cntnr_running):
         with self.assertLogs("__main__", level="ERROR") as log:
             logging.getLogger("__main__").error("A Container is missing or not running. Check log for details.")
-            main("127.0.0.1")
+            main("127.0.0.1", True)
         self.assertEqual(log.output, ["ERROR:__main__:A Container is missing or not running. Check log for details."])
 
     def test_start_without_param(self):
         with self.assertRaises(TypeError) as err:
             main()
-        self.assertEqual(str(err.exception), "main() missing 1 required positional argument: 'receiver_ip'")
+        self.assertEqual(str(err.exception), "main() missing 2 required positional arguments: 'receiver_ip' and "
+                                             "'reset_unbound_stats'")

@@ -20,7 +20,7 @@ class Publisher:
             docker.execute(publisher_cntnr,
                            [f"mosquitto_pub", "-h", f"{receiver_ip}", "-q", "1", "-t", f"{__topic__}", "-m",
                             f"{stats}"])
-            logger.error("Send statistics to MQTT broker successful.")
+            logger.debug("Send statistics to MQTT broker successful.")
             success = True
 
         except DockerException as e:

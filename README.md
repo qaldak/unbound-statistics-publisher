@@ -11,13 +11,16 @@ Eclipse Mosquitto to an MQTT message broker).
 
 #### Command line
 
-`python3 main.py <IP Address Receiver> [--debug]`
+`python3 main.py <IP Address Receiver> [--no-reset] [--debug]`
 
-optional parameter "--debug" set loglevel to "DEBUG"
+optional parameter:
+
+* "--no-reset" ("-nr") avoid to reset unbound statistics
+* "--debug" set loglevel to DEBUG
 
 #### Cronjob
 
-`05 0 * * * cd <PATH> ; python3 main.py <IP Address> [--debug]`
+`05 0 * * * cd <PATH> ; python3 main.py <IP Address> [--no-reset] [--debug]`
 
 ### Requirements
 
