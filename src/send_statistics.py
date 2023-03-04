@@ -10,9 +10,7 @@ logger = logging.getLogger(__name__)
 class Publisher:
 
     @staticmethod
-    def send_statistics(receiver_ip: str, stats: dict, publisher_cntnr: str) -> bool:
-        if not isinstance(stats, dict):
-            raise TypeError
+    def send_statistics(receiver_ip: str, stats: str, publisher_cntnr: str) -> bool:
 
         __topic__ = f"statistics/unbound/{get_hostname('upper')}"
 

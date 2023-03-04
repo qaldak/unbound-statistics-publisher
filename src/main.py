@@ -27,7 +27,7 @@ def main(receiver_ip, reset_unbound_stats: bool):
         logger.error(f"A Container is missing or not running. Check log for details.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("receiver_ip", help="IP address of the message receiver, e.g. MQTT Broker")
     parser.add_argument("-nr", "--no-reset", action="store_false", dest="reset_unbound_stats",
@@ -36,7 +36,7 @@ if __name__ == '__main__':
                         help="Set loglevel to DEBUG")
     args = parser.parse_args()
 
-    logging.basicConfig(level=args.loglevel, filename="../log/unbound-stats.log",
+    logging.basicConfig(level=args.loglevel, filename="log/unbound-stats.log",
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     main(args.receiver_ip, args.reset_unbound_stats)
