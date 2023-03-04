@@ -11,7 +11,7 @@ Eclipse Mosquitto to an MQTT message broker).
 
 #### Command line
 
-`python3 main.py <IP Address Receiver> [--no-reset] [--debug]`
+`python3 -m src.main <IP Address Receiver> [--no-reset] [--debug]`
 
 optional parameter:
 
@@ -20,7 +20,7 @@ optional parameter:
 
 #### Cronjob
 
-`05 0 * * * cd <PATH> ; python3 main.py <IP Address> [--no-reset] [--debug]`
+`05 0 * * * cd <PATH> ; python3 -m src.main <IP Address> [--no-reset] [--debug]`
 
 ### Requirements
 

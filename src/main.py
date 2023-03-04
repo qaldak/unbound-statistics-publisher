@@ -1,10 +1,10 @@
 import argparse
 import logging
 
-from check_container import Container
-from get_hostname import get_hostname
-from get_statistics import Collector
-from send_statistics import Publisher
+from src.check_container import Container
+from src.get_hostname import get_hostname
+from src.get_statistics import Collector
+from src.send_statistics import Publisher
 
 logger = logging.getLogger(__name__)
 

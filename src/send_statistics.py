@@ -2,7 +2,7 @@ import logging
 
 from python_on_whales import docker, DockerException
 
-from get_hostname import get_hostname
+from src.get_hostname import get_hostname
 
 logger = logging.getLogger(__name__)
 
