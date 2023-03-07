@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from get_hostname import get_hostname
+from src.get_hostname import get_hostname
 
 
 class TestGetHostname(TestCase):

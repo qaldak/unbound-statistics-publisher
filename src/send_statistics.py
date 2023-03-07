@@ -2,7 +2,7 @@ import logging
 
 from python_on_whales import docker, DockerException
 
-from get_hostname import get_hostname
+from src.get_hostname import get_hostname
 
 logger = logging.getLogger(__name__)
 
@@ -10,9 +10,7 @@ logger = logging.getLogger(__name__)
 class Publisher:
 
     @staticmethod
-    def send_statistics(receiver_ip: str, stats: dict, publisher_cntnr: str) -> bool:
-        if not isinstance(stats, dict):
-            raise TypeError
+    def send_statistics(receiver_ip: str, stats: str, publisher_cntnr: str) -> bool:
 
         __topic__ = f"statistics/unbound/{get_hostname('upper')}"
 
