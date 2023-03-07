@@ -1,5 +1,6 @@
 import argparse
 import logging
+import os
 
 from src.check_container import Container
 from src.get_hostname import get_hostname
@@ -36,7 +37,11 @@ if __name__ == "__main__":
                         help="Set loglevel to DEBUG")
     args = parser.parse_args()
 
-    logging.basicConfig(level=args.loglevel, filename="log/unbound-stats.log",
+    logdir = "log"
+    if not os.path.isdir(logdir):
+        os.makedirs(logdir)
+
+    logging.basicConfig(level=args.loglevel, filename=f"{logdir}/unbound-stats.log",
                         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
     main(args.receiver_ip, args.reset_unbound_stats)
