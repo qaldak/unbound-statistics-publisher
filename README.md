@@ -1,4 +1,5 @@
 # unbound-statistics-publisher
+[![Python unit tests](https://github.com/qaldak/unbound-statistics-publisher/actions/workflows/python-tests.yml/badge.svg)](https://github.com/qaldak/unbound-statistics-publisher/actions/workflows/python-tests.yml)
 
 ## Description
 
