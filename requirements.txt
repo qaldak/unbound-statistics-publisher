@@ -1,1 +1,1 @@
-python-on-whales==0.64.0
+python-on-whales==0.64.1
