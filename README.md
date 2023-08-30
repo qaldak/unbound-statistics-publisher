@@ -1,10 +1,11 @@
 # unbound-statistics-publisher
+
 [![Python unit tests](https://github.com/qaldak/unbound-statistics-publisher/actions/workflows/python-tests.yml/badge.svg)](https://github.com/qaldak/unbound-statistics-publisher/actions/workflows/python-tests.yml)
 
 ## Description
 
-Collects metrics from an Unbound Docker container and sends them to a receiver using another Docker container (e.g. via
-Eclipse Mosquitto to an MQTT message broker).
+Collects metrics from an Unbound Docker container and sends them to a receiver using MQTT (via Eclipse Mosquitto Docker
+container).
 
 ## Getting started
 
@@ -44,7 +45,7 @@ optional parameter:
 there are much more Docker images for the same purpose. These here I used for this project:<br>
 
 * [eclipse mosquito](https://hub.docker.com/_/eclipse-mosquitto) by the Eclipse Foundation
-* [Unbound DNS Server Deocker Image](https://hub.docker.com/r/mvance/unbound) by Matthew Vance
+* [Unbound DNS Server Docker Image](https://hub.docker.com/r/mvance/unbound) by Matthew Vance
 
 ## Contribute
 
