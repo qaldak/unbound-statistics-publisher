@@ -1,0 +1,43 @@
+name: Release new version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  quality:
+    name: Run project test set
+    uses: ./.github/workflows/python-tests.yml
+    with:
+      target_workflow: ./.github/workflows/python-tests.yml
+
+  release:
+    if: ${{ ! startsWith(github.event.head_commit.message, 'release' ) }}
+    needs: quality
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install Python dependencies
+        run:
+          pip install -r requirements.txt
+
+      - name: Python Semantic Release
+        uses: python-semantic-release/python-semantic-release@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
