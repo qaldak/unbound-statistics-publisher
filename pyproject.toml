@@ -36,4 +36,3 @@ allowed_tags = [
 ]
 minor_tags = ["feat"]
 patch_tags = ["fix", "perf", "refactor", "chore"]
-patch_tags = ["fix", "perf", "refactor", "chore"]
