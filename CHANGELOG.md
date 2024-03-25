@@ -2,6 +2,45 @@
 
 
 
+## v1.0.1 (2024-03-25)
+
+### Chore
+
+* chore: pip: bump python-on-whales from 0.70.0 to 0.70.1
+
+Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales) from 0.70.0 to 0.70.1.
+- [Release notes](https://github.com/gabrieldemarmiesse/python-on-whales/releases)
+- [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.70.0...v0.70.1)
+
+---
+updated-dependencies:
+- dependency-name: python-on-whales
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`b64aa32`](https://github.com/qaldak/unbound-statistics-publisher/commit/b64aa32f84ed3f1d7816b3eadf4912bbf16ac6e4))
+
+### Unknown
+
+* Update dependabot.yml ([`948eb0f`](https://github.com/qaldak/unbound-statistics-publisher/commit/948eb0f2b29abd62bd94ad30b08259a9d3ede95b))
+
+* pip: bump python-on-whales from 0.69.0 to 0.70.0
+
+Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales) from 0.69.0 to 0.70.0.
+- [Release notes](https://github.com/gabrieldemarmiesse/python-on-whales/releases)
+- [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.69.0...v0.70.0)
+
+---
+updated-dependencies:
+- dependency-name: python-on-whales
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`819942d`](https://github.com/qaldak/unbound-statistics-publisher/commit/819942df6e3cb18d046a530aeba6df3acd0371ca))
+
+
 ## v1.0.0 (2024-02-20)
 
 ### Breaking
