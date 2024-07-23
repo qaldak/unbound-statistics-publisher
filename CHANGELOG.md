@@ -1,6 +1,23 @@
 # CHANGELOG
 
+## v1.0.3 (2024-07-23)
 
+### Chore
+
+* chore: pip: bump python-on-whales from 0.71.0 to 0.72.0
+
+Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales) from 0.71.0 to 0.72.0.
+- [Release notes](https://github.com/gabrieldemarmiesse/python-on-whales/releases)
+- [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.71.0...v0.72.0)
+
+---
+updated-dependencies:
+- dependency-name: python-on-whales
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`8d1c132`](https://github.com/qaldak/unbound-statistics-publisher/commit/8d1c132baf90d745f6b500cacb7e735aba161d16))
 
 ## v1.0.2 (2024-04-29)
 
@@ -20,7 +37,6 @@ updated-dependencies:
 ...
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`d77a922`](https://github.com/qaldak/unbound-statistics-publisher/commit/d77a922ce5b3adf8b75c123e4d04fa70d63f1c23))
-
 
 ## v1.0.1 (2024-03-25)
 
@@ -60,7 +76,6 @@ updated-dependencies:
 
 Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`819942d`](https://github.com/qaldak/unbound-statistics-publisher/commit/819942df6e3cb18d046a530aeba6df3acd0371ca))
 
-
 ## v1.0.0 (2024-02-20)
 
 ### Breaking
@@ -71,7 +86,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`819942d`](https://g
 
 * chore: fix release number ([`5570eae`](https://github.com/qaldak/unbound-statistics-publisher/commit/5570eae81a42215167fed127892eafec256dd3f0))
 
-
 ## v0.1.1 (2024-02-20)
 
 ### Refactor
@@ -79,7 +93,6 @@ Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`819942d`](https://g
 * refactor: semantic release ([`ec30b09`](https://github.com/qaldak/unbound-statistics-publisher/commit/ec30b09bc83d9c3c98fa1af28d2db5d87d351211))
 
 * refactor: semantic release ([`068f647`](https://github.com/qaldak/unbound-statistics-publisher/commit/068f647c130bc8dcffd1b916c1a17770dc1022b2))
-
 
 ## v0.1.0 (2024-02-20)
 
@@ -105,17 +118,17 @@ README.md updated ([`ab22c14`](https://github.com/qaldak/unbound-statistics-publ
 
 * refactor: renaming functions ([`dd4fd1f`](https://github.com/qaldak/unbound-statistics-publisher/commit/dd4fd1f3bc87e3c8ec2308aedd7badcf3e377afa))
 
-* refactor: renaming files ([`31cf205`](https://github.com/qaldak/unbound-statistics-publisher/commit/31cf2057a2b3cf50f1dfc9a418a6f37eac85bfdb))
-
 * refactor: renaming files ([`4f8eaa4`](https://github.com/qaldak/unbound-statistics-publisher/commit/4f8eaa4a3f3678c3de9d06e6f2cf119c273e8a34))
+
+* refactor: renaming files ([`31cf205`](https://github.com/qaldak/unbound-statistics-publisher/commit/31cf2057a2b3cf50f1dfc9a418a6f37eac85bfdb))
 
 * refactor: check_container ([`f3aaaf2`](https://github.com/qaldak/unbound-statistics-publisher/commit/f3aaaf24c95c6049d49d5ad40e6d5e71958ca479))
 
 * refactor: check_container
-.gitignore: add *.log ([`c6d7e2f`](https://github.com/qaldak/unbound-statistics-publisher/commit/c6d7e2f473a1088e8734f22cf11ce8ee4038cdd5))
+.gitignore: add *.log ([`80a9bfc`](https://github.com/qaldak/unbound-statistics-publisher/commit/80a9bfcd6a506674d4930bf308dd93219cc36f22))
 
 * refactor: check_container
-.gitignore: add *.log ([`80a9bfc`](https://github.com/qaldak/unbound-statistics-publisher/commit/80a9bfcd6a506674d4930bf308dd93219cc36f22))
+.gitignore: add *.log ([`c6d7e2f`](https://github.com/qaldak/unbound-statistics-publisher/commit/c6d7e2f473a1088e8734f22cf11ce8ee4038cdd5))
 
 ### Test
 
