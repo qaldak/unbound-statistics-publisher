@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## v1.0.4 (2024-09-09)
+
+### Chore
+
+* chore: pip: bump python-on-whales from 0.72.0 to 0.73.0
+
+Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales) from 0.72.0 to 0.73.0.
+- [Release notes](https://github.com/gabrieldemarmiesse/python-on-whales/releases)
+- [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.72.0...v0.73.0)
+
+---
+updated-dependencies:
+- dependency-name: python-on-whales
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+...
+
+Signed-off-by: dependabot[bot] &lt;support@github.com&gt; ([`7a8faf9`](https://github.com/qaldak/unbound-statistics-publisher/commit/7a8faf9bfe7cff427d46ce6bc915f43f25f94b74))
+
 ## v1.0.3 (2024-07-23)
 
 ### Chore
