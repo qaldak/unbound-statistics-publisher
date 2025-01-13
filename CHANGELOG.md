@@ -1,6 +1,26 @@
 # CHANGELOG
 
 
+## v1.0.6 (2025-01-13)
+
+### Chores
+
+- Pip: bump python-on-whales from 0.74.0 to 0.75.1
+  ([`a8d62b1`](https://github.com/qaldak/unbound-statistics-publisher/commit/a8d62b1b2fb4e31c37414e67f1d5b7242589635e))
+
+Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales) from 0.74.0 to
+  0.75.1. - [Release notes](https://github.com/gabrieldemarmiesse/python-on-whales/releases) -
+  [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.74.0...v0.75.1)
+
+--- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
+
+update-type: version-update:semver-minor
+
+...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v1.0.5 (2024-11-28)
 
 ### Chores
@@ -13,7 +33,10 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
   [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.73.0...v0.74.0)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
-  update-type: version-update:semver-minor ...
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -30,7 +53,10 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
   [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.72.0...v0.73.0)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
-  update-type: version-update:semver-minor ...
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -47,7 +73,10 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
   [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.71.0...v0.72.0)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
-  update-type: version-update:semver-minor ...
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -64,7 +93,10 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
   [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.70.1...v0.71.0)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
-  update-type: version-update:semver-minor ...
+
+update-type: version-update:semver-minor
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -81,7 +113,10 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
   [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.70.0...v0.70.1)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
-  update-type: version-update:semver-patch ...
+
+update-type: version-update:semver-patch
+
+...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -114,37 +149,16 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 ### Features
 
-- Semantic release
-  ([`681db74`](https://github.com/qaldak/unbound-statistics-publisher/commit/681db7402a307e510d648344dab179224fe50d62))
-
 - New param --noreset added
   ([`be706a4`](https://github.com/qaldak/unbound-statistics-publisher/commit/be706a4a81b4f9543d239ce1c6c0713423a659f8))
 
-### Refactoring
+- Semantic release
+  ([`681db74`](https://github.com/qaldak/unbound-statistics-publisher/commit/681db7402a307e510d648344dab179224fe50d62))
 
-- Readme.md
-  ([`de372c0`](https://github.com/qaldak/unbound-statistics-publisher/commit/de372c0fbf5e025ad740e21dae4e28180712ce90))
+### Refactoring
 
 - Check 'n create logdir if not exists
   ([`b23c8a1`](https://github.com/qaldak/unbound-statistics-publisher/commit/b23c8a18d53b5f8e978bb01505310dff3560c19a))
-
-- Json was sent with single quotes. Change to JSON string.
-  ([`0252ac2`](https://github.com/qaldak/unbound-statistics-publisher/commit/0252ac28dd6c050e43278a0810994a05f2713ad6))
-
-- Imports with 'src.'
-  ([`e3898f7`](https://github.com/qaldak/unbound-statistics-publisher/commit/e3898f798b5ae64c4292a11597afee56f5fb95d3))
-
-- Many things
-  ([`ab22c14`](https://github.com/qaldak/unbound-statistics-publisher/commit/ab22c14fc5c228c44c66d40f6c38b6e8a7ab71ea))
-
-- Renaming functions
-  ([`dd4fd1f`](https://github.com/qaldak/unbound-statistics-publisher/commit/dd4fd1f3bc87e3c8ec2308aedd7badcf3e377afa))
-
-- Renaming files
-  ([`4f8eaa4`](https://github.com/qaldak/unbound-statistics-publisher/commit/4f8eaa4a3f3678c3de9d06e6f2cf119c273e8a34))
-
-- Renaming files
-  ([`31cf205`](https://github.com/qaldak/unbound-statistics-publisher/commit/31cf2057a2b3cf50f1dfc9a418a6f37eac85bfdb))
 
 - Check_container
   ([`f3aaaf2`](https://github.com/qaldak/unbound-statistics-publisher/commit/f3aaaf24c95c6049d49d5ad40e6d5e71958ca479))
@@ -154,6 +168,27 @@ Signed-off-by: dependabot[bot] <support@github.com>
 
 - Check_container
   ([`c6d7e2f`](https://github.com/qaldak/unbound-statistics-publisher/commit/c6d7e2f473a1088e8734f22cf11ce8ee4038cdd5))
+
+- Imports with 'src.'
+  ([`e3898f7`](https://github.com/qaldak/unbound-statistics-publisher/commit/e3898f798b5ae64c4292a11597afee56f5fb95d3))
+
+- Json was sent with single quotes. Change to JSON string.
+  ([`0252ac2`](https://github.com/qaldak/unbound-statistics-publisher/commit/0252ac28dd6c050e43278a0810994a05f2713ad6))
+
+- Many things
+  ([`ab22c14`](https://github.com/qaldak/unbound-statistics-publisher/commit/ab22c14fc5c228c44c66d40f6c38b6e8a7ab71ea))
+
+- Readme.md
+  ([`de372c0`](https://github.com/qaldak/unbound-statistics-publisher/commit/de372c0fbf5e025ad740e21dae4e28180712ce90))
+
+- Renaming files
+  ([`4f8eaa4`](https://github.com/qaldak/unbound-statistics-publisher/commit/4f8eaa4a3f3678c3de9d06e6f2cf119c273e8a34))
+
+- Renaming files
+  ([`31cf205`](https://github.com/qaldak/unbound-statistics-publisher/commit/31cf2057a2b3cf50f1dfc9a418a6f37eac85bfdb))
+
+- Renaming functions
+  ([`dd4fd1f`](https://github.com/qaldak/unbound-statistics-publisher/commit/dd4fd1f3bc87e3c8ec2308aedd7badcf3e377afa))
 
 ### Testing
 
