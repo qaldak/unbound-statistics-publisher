@@ -1,6 +1,24 @@
 # CHANGELOG
 
 
+## v1.0.7 (2025-03-31)
+
+### Chores
+
+- Pip: bump python-on-whales from 0.75.1 to 0.76.1
+  ([`9953700`](https://github.com/qaldak/unbound-statistics-publisher/commit/9953700e8de4d7a07483174549006bc7b6d68ed0))
+
+Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales) from 0.75.1 to
+  0.76.1. - [Release notes](https://github.com/gabrieldemarmiesse/python-on-whales/releases) -
+  [Commits](https://github.com/gabrieldemarmiesse/python-on-whales/compare/v0.75.1...v0.76.1)
+
+--- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
+
+update-type: version-update:semver-minor ...
+
+Signed-off-by: dependabot[bot] <support@github.com>
+
+
 ## v1.0.6 (2025-01-13)
 
 ### Chores
@@ -14,9 +32,7 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -34,9 +50,7 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -54,9 +68,7 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -74,9 +86,7 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -94,9 +104,7 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
 
-update-type: version-update:semver-minor
-
-...
+update-type: version-update:semver-minor ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
@@ -114,9 +122,7 @@ Bumps [python-on-whales](https://github.com/gabrieldemarmiesse/python-on-whales)
 
 --- updated-dependencies: - dependency-name: python-on-whales dependency-type: direct:production
 
-update-type: version-update:semver-patch
-
-...
+update-type: version-update:semver-patch ...
 
 Signed-off-by: dependabot[bot] <support@github.com>
 
