@@ -2,7 +2,7 @@ import argparse
 import logging
 import os
 
-from src.check_container import Container
+from src.container import Container
 from src.get_hostname import get_hostname
 from src.get_statistics import Collector
 from src.send_statistics import Publisher
@@ -11,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 
 def main(receiver_ip, reset_unbound_stats: bool):
-    collector_cntnr = f"unbound_{get_hostname('lower')}"
-    publisher_cntnr = f"mosquitto_{get_hostname('lower')}"
+    collector_cntnr = Container.determine_container_name("unbound")
+    publisher_cntnr = Container.determine_container_name("mosquitto")
 
     logger.debug(f"Param reset_unbound_stats = {reset_unbound_stats}")
     logger.debug(f"Provide statistics for Docker container '{collector_cntnr}'")
