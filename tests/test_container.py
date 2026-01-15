@@ -42,8 +42,7 @@ class TestDockerContainerRunning(TestCase):
         cnt_name = Container.determine_container_name("mosquitto")
         self.assertEqual(cnt_name, "mosquitto-bar")
 
-    @patch("get_hostname.gethostname", return_value="bar")
-    def test_determine_container_name_error(self, mock_hostname):
+    def test_determine_container_name_error(self):
         with self.assertRaises(ValueError) as err:
             cnt_name = Container.determine_container_name("Foo")
         self.assertEqual(str(err.exception), "Unsupported container: foo")
