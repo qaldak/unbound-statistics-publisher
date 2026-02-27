@@ -3,3 +3,8 @@
 .pytest_cache
 *.log
 __pycache__
+
+# Environments
+.venv
+venv/
+venv.bak/
