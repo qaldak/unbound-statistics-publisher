@@ -6,3 +6,7 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "chore: pip"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
