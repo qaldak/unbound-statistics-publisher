@@ -11,12 +11,12 @@ class Container:
         self.name = name
 
     def __log_container_info(self):
-        for container in docker.ps(all=True, filters=[{"name": self.name}]):
+        for container in docker.ps(all=True, filters=[("name", self.name)]):
             logger.debug(f"Container info for '{self.name}': {container.state}")
 
     def is_running(self):
         try:
-            if docker.ps(filters={"name": self.name, "status": "running"}):
+            if docker.ps(filters=[("name", self.name), ("status", "running")]):
                 logger.debug(f"Container {self.name} is running")
                 return True
             else:
@@ -38,7 +38,7 @@ class Container:
 
         try:
             logger.debug(f"Searching for container: {search_name}")
-            containers = docker.ps(filters=[{"name": search_name}])
+            containers = docker.ps(filters=[("name", search_name)])
 
             if not containers:
                 logger.error(f"No container available with name '{search_name}'")
