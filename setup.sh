@@ -2,7 +2,7 @@
 set -e
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VENV_DIR="$PROJECT_DIR/venv"
+VENV_DIR="$PROJECT_DIR/.venv"
 
 # Function: Extract version from Python command
 get_python_version() {
@@ -116,11 +116,17 @@ echo "Python command: $PYTHON_CMD"
 
 # Setup venv
 echo ""
+if [ -d "$VENV_DIR" ] && [ ! -x "$VENV_DIR/bin/python" ]; then
+    echo "Existing .venv at '$VENV_DIR' has no working Python interpreter (its original Python"
+    echo "installation was likely removed or upgraded). Recreating it ..."
+    rm -rf "$VENV_DIR"
+fi
+
 if [ ! -d "$VENV_DIR" ]; then
-    echo "Setup new virtual environment (venv) ..."
+    echo "Setup new virtual environment (.venv) ..."
     $PYTHON_CMD -m venv "$VENV_DIR"
 else
-    echo "Use existing venv environment"
+    echo "Use existing .venv environment"
 fi
 
 # Activate venv
@@ -140,9 +146,9 @@ else
     echo "WARNING: requirements.txt not found"
 fi
 
-# Install/Update docker_volume_backup
+# Install/Update unbound-statistics-publisher
 echo ""
-echo "Install unbound-statistic-publisher ..."
+echo "Install unbound-statistics-publisher ..."
 pip install .
 
 echo ""
@@ -154,4 +160,4 @@ show_version_info "$PYTHON_VERSION_SHORT"
 
 echo ""
 echo "Check crontab. Example:"
-echo "@hourly      $PROJECT_DIR/venv/bin/python -m unbound-statistic-publisher.main <IP address>"
+echo "05 0 * * * $PROJECT_DIR/.venv/bin/python -m src.main <IP address receiver> [--no-reset] [--debug]"
