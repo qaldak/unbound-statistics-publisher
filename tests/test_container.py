@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch, Mock
 
-from python_on_whales import docker
+from python_on_whales import docker, DockerException
 
 from src.container import Container
 
@@ -44,5 +44,45 @@ class TestDockerContainerRunning(TestCase):
 
     def test_determine_container_name_error(self):
         with self.assertRaises(ValueError) as err:
-            cnt_name = Container.determine_container_name("Foo")
+            Container.determine_container_name("Foo")
         self.assertEqual(str(err.exception), "Unsupported container: foo")
+
+    @staticmethod
+    def _container(name):
+        container = Mock()
+        container.name = name
+        return container
+
+    @patch("src.container.docker.ps")
+    def test_determine_container_name_ignores_substring_matches(self, mock_docker_ps):
+        mock_docker_ps.return_value = [self._container("my-unbound-exporter"), self._container("unbound-bar")]
+
+        self.assertEqual(Container.determine_container_name("unbound"), "unbound-bar")
+
+    @patch("src.container.docker.ps")
+    def test_determine_container_name_only_substring_match(self, mock_docker_ps):
+        mock_docker_ps.return_value = [self._container("my-unbound-exporter")]
+
+        with self.assertRaises(ValueError) as err:
+            Container.determine_container_name("unbound")
+        self.assertEqual(str(err.exception), "No container available with name 'unbound'")
+
+    @patch("src.container.docker.ps", return_value=[])
+    def test_determine_container_name_not_found(self, mock_docker_ps):
+        with self.assertRaises(ValueError):
+            Container.determine_container_name("mosquitto")
+
+    @patch("src.container.docker.ps")
+    def test_determine_container_name_multiple_is_deterministic(self, mock_docker_ps):
+        mock_docker_ps.return_value = [self._container("unbound-b"), self._container("unbound-a")]
+
+        with self.assertLogs("src.container", level="WARNING"):
+            self.assertEqual(Container.determine_container_name("unbound"), "unbound-a")
+
+    @patch("src.container.docker.ps")
+    def test_is_running_docker_error(self, mock_docker_ps):
+        mock_docker_ps.side_effect = DockerException(command_launched=["docker", "ps"], return_code=1,
+                                                     stderr=b"daemon not running")
+
+        with self.assertLogs("src.container", level="ERROR"):
+            self.assertIs(Container("Foo").is_running(), False)

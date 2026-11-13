@@ -1,5 +1,4 @@
 import logging
-from typing import Optional
 
 from python_on_whales import docker, DockerException
 
@@ -14,7 +13,7 @@ class Container:
         for container in docker.ps(all=True, filters=[("name", self.name)]):
             logger.debug(f"Container info for '{self.name}': {container.state}")
 
-    def is_running(self):
+    def is_running(self) -> bool:
         try:
             if docker.ps(filters=[("name", self.name), ("status", "running")]):
                 logger.debug(f"Container {self.name} is running")
@@ -26,7 +25,8 @@ class Container:
                 return False
 
         except DockerException as e:
-            logger.error(f"{DockerException.__name__}: Exit code {e.return_code}, {e.stderr.strip()}")
+            logger.error(f"{DockerException.__name__}: Exit code {e.return_code}, {(e.stderr or '').strip()}")
+            return False
 
     @staticmethod
     def determine_container_name(name: str) -> str:
@@ -38,13 +38,20 @@ class Container:
 
         try:
             logger.debug(f"Searching for container: {search_name}")
+            # Docker's name filter matches substrings (e.g. 'my-unbound' for 'unbound'),
+            # so only keep containers whose name really starts with the searched name.
             containers = docker.ps(filters=[("name", search_name)])
+            cntr_names = sorted(c.name for c in containers if c.name.lower().startswith(search_name))
 
-            if not containers:
+            if not cntr_names:
                 logger.error(f"No container available with name '{search_name}'")
                 raise ValueError(f"No container available with name '{search_name}'")
 
-            cntr_name = containers[0].name
+            if len(cntr_names) > 1:
+                logger.warning(f"Multiple containers found for '{search_name}': {cntr_names}. "
+                               f"Using '{cntr_names[0]}'")
+
+            cntr_name = cntr_names[0]
             logger.debug(f"Container found: {cntr_name}")
             return cntr_name
 
