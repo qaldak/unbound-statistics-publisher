@@ -13,4 +13,4 @@ class TestGetHostname(TestCase):
         self.assertTrue(result.isupper())
 
     def test_hostname_exception(self):
-        self.assertRaises(TypeError, lambda: get_hostname("what?"))
+        self.assertRaises(ValueError, lambda: get_hostname("what?"))

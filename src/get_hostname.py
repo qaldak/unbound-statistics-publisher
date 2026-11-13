@@ -16,7 +16,7 @@ def get_hostname(lettercase: str) -> str:
     elif lettercase == "upper":
         hostname = gethostname().upper()
     else:
-        logger.error(f"Letter case undefined!")
-        raise TypeError("Letter case undefined! Possible values: '<lower|upper>'")
+        logger.error("Letter case undefined!")
+        raise ValueError("Letter case undefined! Possible values: '<lower|upper>'")
 
     return hostname
