@@ -2,6 +2,24 @@
 
 <!-- version list -->
 
+## v1.1.3 (2026-11-13)
+
+### Bug Fixes
+
+- Make setup.sh cron hint work and ignore build artifacts
+  ([`9960985`](https://github.com/qaldak/unbound-statistics-publisher/commit/99609850fd1c2feb99c9e687aa38ed61a604e4d7))
+
+### Build System
+
+- Harden and slim down the CI workflows
+  ([`92488db`](https://github.com/qaldak/unbound-statistics-publisher/commit/92488dbe0aaed5c4a67a3c8043b125b6146e1178))
+
+### Testing
+
+- Make the container and publisher tests hermetic
+  ([`aa48a80`](https://github.com/qaldak/unbound-statistics-publisher/commit/aa48a80af85ab05de61962835e32eda85790cbfa))
+
+
 ## v1.1.2 (2026-11-13)
 
 ### Bug Fixes
