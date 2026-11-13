@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest==9.2.0
+# flake8 7.x requires Python >= 3.11, linting runs only once in CI (see python-tests.yml)
+flake8==7.5.0; python_version >= "3.11"
