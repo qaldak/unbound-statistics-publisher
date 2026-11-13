@@ -1,6 +1,6 @@
 [project]
 name = "unbound-statistics-publisher"
-version = "1.1.1"
+version = "1.1.2"
 authors = [{ name = "Qaldak" }]
 readme = "README.md"
 requires-python = ">=3.10"

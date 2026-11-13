@@ -2,6 +2,17 @@
 
 <!-- version list -->
 
+## v1.1.2 (2026-11-13)
+
+### Bug Fixes
+
+- Handle failed statistics collection and container lookup
+  ([`73932fa`](https://github.com/qaldak/unbound-statistics-publisher/commit/73932fa52ef4fa353ed562bb0bfe79603fc7e83f))
+
+- Keep the debug messages of the statistics conversion
+  ([`228ce5e`](https://github.com/qaldak/unbound-statistics-publisher/commit/228ce5efda85b7a383267ad7969d8583e08ae50d))
+
+
 ## v1.1.1 (2026-11-13)
 
 ### Bug Fixes
