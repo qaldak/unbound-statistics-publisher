@@ -14,23 +14,32 @@ get_python_version() {
     fi
 }
 
+# Minimum supported Python version (see requires-python in pyproject.toml)
+MIN_PYTHON_MAJOR=3
+MIN_PYTHON_MINOR=10
+
 # Function: Show info/warning for selected version
 show_version_info() {
     local version=$1
 
     case $version in
-        3.13|3.14|3.15)
+        3.12|3.13|3.14)
             echo ""
-            echo "⚠ WARNING: Python $version may not be fully tested yet."
-            echo "  Proceed with caution."
+            echo "✓ venv installed with Python $version (tested and recommended version)."
+            ;;
+        3.11)
+            echo ""
+            echo "i INFO: Python $version will reach End-of-Life in October 2027."
             ;;
         3.10)
             echo ""
-            echo "i INFO: Python $version will reach End-of-Life in October 2026."
+            echo "⚠ WARNING: Python $version reached End-of-Life in October 2026."
+            echo "  It is still supported by this project, but consider upgrading to a newer version."
             ;;
-        3.11|3.12)
+        3.15)
             echo ""
-            echo "✓ venv installed with Python $version (stable and recommended version)."
+            echo "⚠ WARNING: Python $version is not tested yet."
+            echo "  Proceed with caution."
             ;;
         *)
             echo ""
@@ -109,6 +118,12 @@ echo ""
 echo "Selected: $PYTHON_VERSION_FULL"
 echo "Python command: $PYTHON_CMD"
 
+if ! $PYTHON_CMD -c "import sys; sys.exit(0 if sys.version_info >= ($MIN_PYTHON_MAJOR, $MIN_PYTHON_MINOR) else 1)"; then
+    echo ""
+    echo "ERROR: Python $MIN_PYTHON_MAJOR.$MIN_PYTHON_MINOR or higher is required."
+    exit 1
+fi
+
 # Setup venv
 echo ""
 if [ -d "$VENV_DIR" ] && [ ! -x "$VENV_DIR/bin/python" ]; then
@@ -141,10 +156,13 @@ else
     echo "WARNING: requirements.txt not found"
 fi
 
-# Install/Update unbound-statistics-publisher
-echo ""
-echo "Install unbound-statistics-publisher ..."
-pip install .
+# Earlier versions of this script installed the project with 'pip install .'. That only copied the modules
+# flat into site-packages (without the 'src' package) and is not needed to run the script, so remove it.
+if pip show unbound-statistics-publisher &> /dev/null; then
+    echo ""
+    echo "Remove obsolete package installation of unbound-statistics-publisher ..."
+    pip uninstall -y unbound-statistics-publisher
+fi
 
 echo ""
 echo ""
@@ -154,5 +172,7 @@ echo "=== Setup completed successfully ==="
 show_version_info "$PYTHON_VERSION_SHORT"
 
 echo ""
-echo "Check crontab. Example:"
-echo "05 0 * * * $PROJECT_DIR/.venv/bin/python -m src.main <IP address receiver> [--no-reset] [--debug]"
+echo "Check crontab. Example (the script has to be started from the project directory):"
+echo "05 0 * * * cd $PROJECT_DIR && $PROJECT_DIR/.venv/bin/python -m src.main <IP address receiver> [--no-reset] [--debug]"
+echo ""
+echo "To update: get the latest version (e.g. git pull) and run this script again."
