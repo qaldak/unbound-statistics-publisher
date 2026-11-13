@@ -40,6 +40,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Python Semantic Release
-        uses: python-semantic-release/python-semantic-release@master
+        uses: python-semantic-release/python-semantic-release@v10.7.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
