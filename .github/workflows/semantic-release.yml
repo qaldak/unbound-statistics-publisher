@@ -8,11 +8,11 @@ on:
 jobs:
   quality:
     name: Run project test set
+    # No need to test the release commit created by semantic-release itself
+    if: ${{ ! startsWith(github.event.head_commit.message, 'release' ) }}
     permissions:
       contents: read
     uses: ./.github/workflows/python-tests.yml
-    with:
-      target_workflow: ./.github/workflows/python-tests.yml
 
   release:
     if: ${{ ! startsWith(github.event.head_commit.message, 'release' ) }}
@@ -20,26 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: release
     permissions:
-      id-token: write
       contents: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_TOKEN }}
 
-      - name: Setup Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: 3.12
-
-      - name: Install Python dependencies
-        run:
-          pip install -r requirements.txt
-
       - name: Python Semantic Release
-        uses: python-semantic-release/python-semantic-release@v10.7.0
+        uses: python-semantic-release/python-semantic-release@b700dbeb1f431a0fcc30a79f3f0869407fe07278 # v10.7.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
