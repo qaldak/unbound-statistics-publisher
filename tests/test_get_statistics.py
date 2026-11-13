@@ -23,6 +23,14 @@ class TestCollectUnboundStatistics(TestCase):
         self.assertEqual(stats["thread0.num.queries"], 20)
         self.assertEqual(stats["thread0.recursion.time.avg"], 0.173971)
 
+    def test_debug_messages(self):
+        with patch("src.get_statistics.docker.execute", return_value="a=1\nb=2.5"):
+            with self.assertLogs("src.get_statistics", level="DEBUG") as log:
+                Collector.get_statistics("foo")
+
+        self.assertIn("DEBUG:src.get_statistics:Converted unbound statistics: {'a': 1, 'b': 2.5}", log.output)
+        self.assertIn('DEBUG:src.get_statistics:JSONified unbound statistics: {"a": 1, "b": 2.5}', log.output)
+
     def test_trailing_newline(self):
         with patch("src.get_statistics.docker.execute", return_value="thread0.num.queries=1\nthread0.num.cachehits=2\n"):
             stats_json = Collector.get_statistics("foo")

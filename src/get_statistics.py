@@ -44,6 +44,8 @@ class Collector:
             logger.error(f"Not possible to create json statistics. stats: {stats!r}")
             return None
 
+        logger.debug(f"Converted unbound statistics: {data}")
+
         json_stats = json.dumps(data)
         logger.debug(f"JSONified unbound statistics: {json_stats}")
         return json_stats
