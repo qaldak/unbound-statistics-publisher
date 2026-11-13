@@ -1,4 +1,5 @@
-from unittest import TestCase
+import uuid
+from unittest import TestCase, skipUnless
 from unittest.mock import patch, Mock
 
 from python_on_whales import docker
@@ -6,11 +7,23 @@ from python_on_whales import docker
 from src.container import Container
 
 
+def docker_available() -> bool:
+    """True if a Docker daemon can be reached."""
+    try:
+        docker.info()
+    except Exception:  # no docker binary, daemon not running, missing permission, ...
+        return False
+    return True
+
+
 class TestDockerContainerRunning(TestCase):
 
+    @skipUnless(docker_available(), "Docker daemon not available")
     def test_container_running(self):
-        with docker.run("busybox", ["sleep", "infinity"], detach=True, remove=True, name="busybox") as c:
-            assert Container("busybox").is_running() is True
+        # unique name, so a container left over from an earlier run cannot interfere
+        name = f"busybox-test-{uuid.uuid4().hex[:8]}"
+        with docker.run("busybox", ["sleep", "infinity"], detach=True, remove=True, name=name):
+            self.assertTrue(Container(name).is_running())
 
     @patch("src.container.docker.ps", return_value=True)
     def test_container_running_mock(self, mock_container_state):
@@ -44,5 +57,5 @@ class TestDockerContainerRunning(TestCase):
 
     def test_determine_container_name_error(self):
         with self.assertRaises(ValueError) as err:
-            cnt_name = Container.determine_container_name("Foo")
+            Container.determine_container_name("Foo")
         self.assertEqual(str(err.exception), "Unsupported container: foo")
