@@ -24,11 +24,6 @@ show_version_info() {
             echo "⚠ WARNING: Python $version may not be fully tested yet."
             echo "  Proceed with caution."
             ;;
-        3.9)
-            echo ""
-            echo "⚠ WARNING: Python $version reached End-of-Life in October 2025."
-            echo "  Consider upgrading to a supported version."
-            ;;
         3.10)
             echo ""
             echo "i INFO: Python $version will reach End-of-Life in October 2026."
