@@ -1,5 +1,104 @@
 # CHANGELOG
 
+<!-- version list -->
+
+## v1.1.0 (2026-09-25)
+
+### Features
+
+- Setup script
+  ([`4f37a11`](https://github.com/qaldak/unbound-statistics-publisher/commit/4f37a11b26b707b27f3408aa1e59a102432f73be))
+
+
+## v1.0.16 (2026-08-11)
+
+### Bug Fixes
+
+- Docker.ps syntax changed
+  ([`2a7ce28`](https://github.com/qaldak/unbound-statistics-publisher/commit/2a7ce28b2642686baae5b55bb378a9d2ecba3cbe))
+
+
+## v1.0.15 (2026-08-10)
+
+### Chores
+
+- Bump actions/setup-python from 6 to 7
+  ([`eee5def`](https://github.com/qaldak/unbound-statistics-publisher/commit/eee5def5b5129246189d0153669f7e42dcaa0c47))
+
+
+## v1.0.14 (2026-06-25)
+
+### Build System
+
+- Update github actions and added in dependabot.yml
+  ([`01c7467`](https://github.com/qaldak/unbound-statistics-publisher/commit/01c746712093d4bc6a14dfa93d6701d109aaf588))
+
+### Chores
+
+- Bump actions/checkout from 6 to 7
+  ([`a8c7c75`](https://github.com/qaldak/unbound-statistics-publisher/commit/a8c7c7506af4de9687263dc0194bc002760fe96e))
+
+
+## v1.0.13 (2026-03-16)
+
+### Chores
+
+- Pip: bump python-on-whales from 0.80.0 to 0.81.0
+  ([`f42bf19`](https://github.com/qaldak/unbound-statistics-publisher/commit/f42bf19c1bf7176f2233bac4466fb5e6b307e939))
+
+### Features
+
+- Use VENV as pyhton environment
+  ([`5f6997b`](https://github.com/qaldak/unbound-statistics-publisher/commit/5f6997b17fa68ddc0cb47461fef6667ffa38df9a))
+
+
+## v1.0.12 (2026-01-15)
+
+### Bug Fixes
+
+- Determine unbound and masquitto container without hardcoded chars
+  ([`1adb033`](https://github.com/qaldak/unbound-statistics-publisher/commit/1adb033b6efb4546cfb76e0b7609ffdf0a57845c))
+
+- Determine unbound and masquitto container without hardcoded chars
+  ([`38f7313`](https://github.com/qaldak/unbound-statistics-publisher/commit/38f7313c1be3ddb52eac667fcba897d3274bd164))
+
+
+## v1.0.11 (2026-01-12)
+
+### Chores
+
+- Pip: bump python-on-whales from 0.79.0 to 0.80.0
+  ([`6cd1baa`](https://github.com/qaldak/unbound-statistics-publisher/commit/6cd1baac68f8f234a909e99568ad1bf371d9993d))
+
+
+## v1.0.10 (2025-10-29)
+
+### Chores
+
+- Pip: bump python-on-whales from 0.78.0 to 0.79.0
+  ([`b913d65`](https://github.com/qaldak/unbound-statistics-publisher/commit/b913d65ebbd62793d8410a07f8afde6e77ae8c37))
+
+
+## v1.0.9 (2025-07-29)
+
+### Build System
+
+- Permissions added
+  ([`08859af`](https://github.com/qaldak/unbound-statistics-publisher/commit/08859afa6fead6fc9198dd92875091fbd2772995))
+
+### Chores
+
+- Pip: bump python-on-whales from 0.77.0 to 0.78.0
+  ([`6d069a8`](https://github.com/qaldak/unbound-statistics-publisher/commit/6d069a896e9f0db18f06cb8a8dccb4b961b8ebec))
+
+
+## v1.0.8 (2025-06-02)
+
+### Chores
+
+- Pip: bump python-on-whales from 0.76.1 to 0.77.0
+  ([`307e322`](https://github.com/qaldak/unbound-statistics-publisher/commit/307e3223def89cf2b802b252ce49e004b6a8cdcf))
+
 
 ## v1.0.7 (2025-03-31)
 
