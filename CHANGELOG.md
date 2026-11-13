@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.1.4 (2026-11-13)
+
+### Bug Fixes
+
+- Make setup.sh executable
+  ([`ee65451`](https://github.com/qaldak/unbound-statistics-publisher/commit/ee6545151900682efbe99f7feca94ef3e1b7cbf8))
+
+
 ## v1.1.3 (2026-11-13)
 
 ### Bug Fixes
