@@ -2,6 +2,22 @@
 
 <!-- version list -->
 
+## v1.1.1 (2026-11-13)
+
+### Bug Fixes
+
+- Add insertion flag to CHANGELOG.md and backfill missing releases
+  ([`94eaf3d`](https://github.com/qaldak/unbound-statistics-publisher/commit/94eaf3d25260b9aaf297f0945bba80926f9fc5d0))
+
+### Build System
+
+- Pin semantic-release action to v10.7.0 and fix dependabot config
+  ([`1083925`](https://github.com/qaldak/unbound-statistics-publisher/commit/1083925d29681b9c833f336e7aa8786b618d3f97))
+
+- Remove Python 3.9 support
+  ([`d518927`](https://github.com/qaldak/unbound-statistics-publisher/commit/d5189275b359278b597b536edeea5cfea845f6f7))
+
+
 ## v1.1.0 (2026-09-25)
 
 ### Features
